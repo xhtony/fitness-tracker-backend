@@ -1,0 +1,40 @@
+手动设置HealthTrack应用程序的命令步骤：
+
+1. 打开命令提示符（CMD）
+
+2. 导航到项目目录：
+   cd C:\Users\admin\Desktop\CICD\assginment1\app
+
+3. 安装Python依赖：
+   pip install -r requirements.txt
+
+4. 运行Django迁移：
+   python manage.py makemigrations
+   python manage.py migrate
+
+5. 创建超级用户（可选）：
+   python manage.py createsuperuser
+
+6. 安装React依赖：
+   cd fitness-tracker-frontend
+   npm install
+   cd ..
+
+7. 启动后端服务器（新命令行窗口）：
+   python manage.py runserver
+
+8. 启动前端服务器（另一个新命令行窗口）：
+   cd fitness-tracker-frontend
+   npm start
+
+访问地址：
+- 前端: http://localhost:3000
+- 后端API: http://localhost:8000/api
+- 管理后台: http://localhost:8000/admin
+
+
+
+
+
+
+
