@@ -1,24 +1,47 @@
 {
-  "framework": null,
+  "version": 2,
   "builds": [
     {
       "src": "fitness_tracker_backend/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize":  "15mb", "runtime":  "python3.9" }
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9",
+        "includeFiles": [
+          "**/*",
+          "!__pycache__/**",
+          "!*.pyc",
+          "!venv/**"
+        ]
+      }
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "fitness_tracker_backend/wsgi.py",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, DELETE, PUT"
-      }
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "fitness_tracker_backend/wsgi.py"
+      "dest": "fitness_tracker_backend/wsgi.py",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization"
+      }
     }
   ]
 }
