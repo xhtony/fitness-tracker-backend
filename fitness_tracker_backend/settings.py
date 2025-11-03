@@ -214,6 +214,7 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    'https://fitness-tracker-frontend-axgq2ys9y-xiaohui-chis-projects.vercel.app/',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
