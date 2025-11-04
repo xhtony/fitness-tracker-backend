@@ -28,7 +28,7 @@ RUN mkdir -p /app/staticfiles
 ENV DJANGO_STATIC_ROOT=/app/staticfiles
 
 #  Collect static files
-RUN python manage.py collectstatic --noinput
+#RUN python manage.py collectstatic --noinput
 
 # Expose port
 EXPOSE 8000
